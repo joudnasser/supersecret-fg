@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bkaike61podwm"]
 
-[ext_resource type="Script" uid="uid://bk7cojxjhj36l" path="res://left_char.gd" id="1_6gq2f"]
-[ext_resource type="Texture2D" uid="uid://ctt2jjvshk2mm" path="res://AnimationSheet.png" id="2_x540c"]
+[ext_resource type="Script" uid="uid://5e1myw57umyd" path="res://plyr_scripts/input_handler.gd" id="1_6gq2f"]
+[ext_resource type="Texture2D" uid="uid://ctt2jjvshk2mm" path="res://assets/AnimationSheet.png" id="2_x540c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkrhi"]
 size = Vector2(5, 15)
@@ -16,15 +16,27 @@ region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq10y"]
 atlas = ExtResource("2_x540c")
-region = Rect2(48, 72, 24, 24)
+region = Rect2(96, 72, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8gvvd"]
 atlas = ExtResource("2_x540c")
-region = Rect2(72, 72, 24, 24)
+region = Rect2(120, 72, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ns7r2"]
 atlas = ExtResource("2_x540c")
-region = Rect2(96, 72, 24, 24)
+region = Rect2(144, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef2n4"]
+atlas = ExtResource("2_x540c")
+region = Rect2(24, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndeok"]
+atlas = ExtResource("2_x540c")
+region = Rect2(48, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l28x"]
+atlas = ExtResource("2_x540c")
+region = Rect2(72, 72, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gq2f"]
 atlas = ExtResource("2_x540c")
@@ -81,9 +93,23 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ns7r2")
 }],
-"loop": 1,
-"name": &"jump",
+"loop": 0,
+"name": &"jump-down",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef2n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndeok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l28x")
+}],
+"loop": 0,
+"name": &"jump-up",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -131,7 +157,7 @@ shape = SubResource("RectangleShape2D_mkrhi")
 position = Vector2(132, 172)
 scale = Vector2(1, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_jlwaf")
-animation = &"jump"
+animation = &"jump-up"
 autoplay = "default"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1678988597]
@@ -139,3 +165,6 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1175865696]
 position = Vector2(176, 120)
 shape = SubResource("WorldBoundaryShape2D_jlwaf")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=415995281]
+position = Vector2(216, 176)
